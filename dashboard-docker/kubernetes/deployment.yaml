@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring-dashboard-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: catarinaedp-monitoring-dashboard
+  template:
+    metadata:
+      labels:
+        app: catarinaedp-monitoring-dashboard
+    spec:
+      containers:
+      - name: monitoring-dashboard
+        image: catarinaedp-monitoring-dashboard:1.6
+        ports:
+        - containerPort: 5106
